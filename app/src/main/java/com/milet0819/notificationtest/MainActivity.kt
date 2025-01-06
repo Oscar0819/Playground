@@ -78,11 +78,6 @@ class MainActivity : AppCompatActivity() {
         initState()
         initObserver()
 
-        binding.sEraseMode.setOnCheckedChangeListener { buttonView, isChecked ->
-            binding.dv.setEraserMode(isChecked)
-//            binding.dv.isEraseMode = isChecked
-        }
-
         binding.button.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.fetchPost()
@@ -122,6 +117,10 @@ class MainActivity : AppCompatActivity() {
 //
 //                println(user)
             }
+        }
+
+        binding.btDrawingActivity.setOnClickListener {
+
         }
 
     }

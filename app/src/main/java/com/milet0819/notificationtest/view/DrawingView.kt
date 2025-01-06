@@ -34,7 +34,7 @@ class DrawingView @JvmOverloads constructor(
          * setXfermode에 의해 생긴 검은 선을 제가하기 위해 추가한 옵션.
          * 이유 확인 필요.
          */
-//        setLayerType(LAYER_TYPE_SOFTWARE, null)
+        setLayerType(LAYER_TYPE_SOFTWARE, null)
 
         drawPaint = Paint().apply {
             color = Color.BLACK
