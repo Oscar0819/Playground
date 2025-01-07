@@ -1,4 +1,4 @@
-package com.milet0819.notificationtest
+package com.milet0819.notificationtest.ui.main
 
 import android.content.Context
 import android.util.Log
@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.milet0819.notificationtest.common.ApiResult
 import com.milet0819.notificationtest.common.dto.Post
@@ -14,13 +13,11 @@ import com.milet0819.notificationtest.common.dto.Users
 import com.milet0819.notificationtest.common.repo.PostRepository
 import com.milet0819.notificationtest.common.repo.UsersRepository
 import com.milet0819.notificationtest.common.utils.logger
-import dagger.hilt.android.internal.Contexts.getApplication
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import javax.inject.Inject

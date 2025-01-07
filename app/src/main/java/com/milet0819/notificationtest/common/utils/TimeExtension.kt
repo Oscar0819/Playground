@@ -1,4 +1,4 @@
-package com.milet0819.notificationtest
+package com.milet0819.notificationtest.common.utils
 
 import java.text.SimpleDateFormat
 import java.util.Locale

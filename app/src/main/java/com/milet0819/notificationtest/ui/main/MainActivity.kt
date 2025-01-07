@@ -1,54 +1,28 @@
-package com.milet0819.notificationtest
+package com.milet0819.notificationtest.ui.main
 
 import android.Manifest
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import android.util.LruCache
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
-import com.bumptech.glide.Glide
+import com.milet0819.notificationtest.R
 import com.milet0819.notificationtest.common.ApiResult
-import com.milet0819.notificationtest.common.RetrofitClient
-import com.milet0819.notificationtest.common.repo.PostRepository
-import com.milet0819.notificationtest.common.repo.UsersRepository
+import com.milet0819.notificationtest.common.utils.buildIntent
 import com.milet0819.notificationtest.common.utils.logger
+import com.milet0819.notificationtest.common.utils.registerForActivityResult
+import com.milet0819.notificationtest.common.utils.startActivity
 import com.milet0819.notificationtest.common.utils.toast
 import com.milet0819.notificationtest.databinding.ActivityMainBinding
 import com.milet0819.notificationtest.hilt.Car
+import com.milet0819.notificationtest.ui.drawing.DrawingActivity
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.single
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import java.io.UnsupportedEncodingException
-import java.net.URLDecoder
-import java.net.URLEncoder
-import java.util.LinkedList
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -61,6 +35,11 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: PostViewModel by viewModels()
 
     @Inject lateinit var car: Car
+
+    val drawingLauncher = registerForActivityResult {
+        logger(it)
+        toast("Start DrawingActivity")
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,21 +85,20 @@ class MainActivity : AppCompatActivity() {
 
         binding.button5.setOnClickListener {
             lifecycleScope.launch {
-//                highFunc(
-//                    onComplete = { println("onComplete") },
-//                    onError = "error"
-//                )
-//                performTask { println("performing a task.") }
-//                printType(5)
-//                val json = """{"name": "John", "age": 30}"""
-//                val user = json.toObject<User>()
-//
-//                println(user)
+
             }
         }
 
         binding.btDrawingActivity.setOnClickListener {
 
+//            startActivity<DrawingActivity>()
+
+//            startActivity<DrawingActivity>(
+//                DrawingActivity.CODE to 88,
+//                DrawingActivity.NAME to "oscar"
+//            )
+
+            drawingLauncher.launch(buildIntent<DrawingActivity>())
         }
 
     }
