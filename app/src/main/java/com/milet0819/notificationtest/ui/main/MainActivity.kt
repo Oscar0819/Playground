@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 //            startActivity<DrawingActivity>(
 //                DrawingActivity.CODE to 88,
 //                DrawingActivity.NAME to "oscar"
-//            )
+//            ) test
 
             drawingLauncher.launch(buildIntent<DrawingActivity>())
         }
