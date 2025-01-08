@@ -17,6 +17,9 @@
         android:theme="@style/Theme.NotificationTest"
         tools:targetApi="31">
         <activity
+            android:name=".ui.lottery.LotteryActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.drawing.DrawingActivity"
             android:exported="false" />
         <activity

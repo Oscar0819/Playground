@@ -21,6 +21,7 @@ import com.milet0819.notificationtest.common.utils.toast
 import com.milet0819.notificationtest.databinding.ActivityMainBinding
 import com.milet0819.notificationtest.hilt.Car
 import com.milet0819.notificationtest.ui.drawing.DrawingActivity
+import com.milet0819.notificationtest.ui.lottery.LotteryActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -99,6 +100,10 @@ class MainActivity : AppCompatActivity() {
 //            ) test
 
             drawingLauncher.launch(buildIntent<DrawingActivity>())
+        }
+
+        binding.btLotteryActivity.setOnClickListener {
+            startActivity<LotteryActivity>()
         }
 
     }
